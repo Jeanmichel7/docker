@@ -1,0 +1,6 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/jrasser/42/docker'
+make: Leaving directory '/home/jrasser/42/docker'
+ 
+make: *** No targets.  Stop.
+
