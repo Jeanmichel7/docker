@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sat Aug 13 19:00:45 2022
+# Make data base, printed on Sun Aug 14 14:04:00 2022
 
 # Variables
 
@@ -57,7 +57,7 @@ NVM_BIN = /home/jrasser/.nvm/versions/node/v16.14.2/bin
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-2acd4f39-d8c6-4b3c-8220-336a343a5eca.sock
+VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-88d5ea8d-c14b-4560-9b07-16221f457127.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -71,11 +71,11 @@ PWD = /home/jrasser/42/docker
 # default
 .LOADED := 
 # environment
-WSL_INTEROP = /run/WSL/11212_interop
+WSL_INTEROP = /run/WSL/428_interop
 # environment
 PULSE_SERVER = /mnt/wslg/PulseServer
 # environment
-WT_SESSION = 911c8281-d0c1-40ba-80ba-016bea10c68c
+WT_SESSION = 26deeb0a-3c37-47b4-a5b7-e21e73f7791a
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
@@ -213,6 +213,6 @@ Makefile:
 # strcache performance: lookups = 15 / hit rate = 26%
 # hash-table stats:
 # Load=11/8192=0%, Rehash=0, Collisions=1/15=7%
-# Finished Make data base on Sat Aug 13 19:00:45 2022
+# Finished Make data base on Sun Aug 14 14:04:00 2022
 
  
