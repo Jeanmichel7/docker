@@ -1,75 +1,102 @@
-version: '3.5'
-
-
-networks:
-  localhost:
-    name: inet
-
-
-
-volumes:
-  wordpress:
-    name: wordpress
-    driver: local
-    driver_opts:
-      device: /home/buthor/data/wordpress
-      o: bind
-      type: none
-
-  mariadb:
-    name: mariadb
-    driver: local
-    driver_opts:
-      device: /home/buthor/data/mariadb
-      o: bind
-      type: none
-
-
-
+version: '3'
 services:
+  mysql:
+    image: mariadb
+    volumes:
+      - /data/mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: mysql_root_pass
+      MYSQL_DATABASE: db_name
+      MYSQL_USER: user_name
+      MYSQL_PASSWORD: user_pass
+    restart: always
+    #$ sudo userdel mysql 
+    #$ sudo useradd -u 999 mysql
+
+  wordpress:
+    image: wordpress:php7.3-fpm-alpine
+    volumes:
+      - /data/html:/var/www/html
+    depends_on:
+      - mysql
+    environment:
+      WORDPRESS_DB_HOST: mysql
+      MYSQL_ROOT_PASSWORD: mysql_root_pass
+      WORDPRESS_DB_NAME: db_name
+      WORDPRESS_DB_USER: user_name
+      WORDPRESS_DB_PASSWORD: user_pass
+      WORDPRESS_TABLE_PREFIX: wp_
+    links:
+      - mysql
+    restart: always
+    #$ sudo userdel www-data 
+    #$ sudo useradd -u 82 www-data
 
   nginx:
-    depends_on:
-      - wordpress
-    container_name: nginx
-    build: ./requirements/nginx
-    image: nginx-image
+    image: nginx:alpine
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+      - /data/html:/var/www/html
     ports:
-      - "8080:80"
-    volumes:
-      - wordpress:/var/www/wordpress
-    networks:
-      - localhost
-    restart: always
+      - 8080:80
+    links:
+      - wordpress
 
 
-  wordpress:
-    depends_on:
-      - mariadb
-    container_name: wordpress_debian
-    build: ./requirements/wordpress
-    image: wordpress
-    volumes:
-      - wordpress:/var/www/wordpress
-    networks:
-      - localhost
-    restart: always
+# version: ''
 
+# services:
+#   nginx:
+#     image: nginx:stable
+#     container_name: nginx
+#     depends_on:
+#       - wordpress
+#     build: ./requirements/nginx
+#     ports: ['8001:80']
+#     volumes:
+#       - wordpress:/var/www/wordpress
+#     networks:
+#       - localhost
+#     restart: always
 
-  mariadb:
-    container_name: mariadb_debian
-    build: ./requirements/mariadb
-    volumes:
-            - mariadb:/var/lib/mysql
-    networks:
-            - localhost
-    image: mariadb
-    restart: always
+#   wordpress-fpm:
+#     image: wordpress:6-fpm-alpine
+#     container_name: wordpress
+#     links: ['db']
+#     depends_on: ['db']
+#     ports: ['8000:80']
+#     # depends_on:
+#     #   - mariadb
+#     # build: ./requirements/wordpress
+#     volumes:
+#       - ./requirements/wordpress:/var/www/html
+#     # networks:
+#     #   - localhost
+#     restart: always
+#     environment:
+#         - WORDPRESS_DB_HOST= host
+#         - WORDPRESS_DB_USER= user
+#         - WORDPRESS_DB_PASSWORD= password
+#         - WORDPRESS_DB_NAME= name
+#     # environment:
+#     #   - WORDPRESS_DB_HOST: "${DB_HOST}"
+#     #   - WORDPRESS_DB_USER: "${DB_USER}"
+#     #   - WORDPRESS_DB_PASSWORD: "${DB_PASSWORD}"
+#     #   - WORDPRESS_DB_NAME: "${DB_NAME}"
 
-    environment:
-      MYSQL_DATABASE: exampledb
-      MYSQL_USER: exampleuser
-      MYSQL_PASSWORD: examplepass
-      MYSQL_RANDOM_ROOT_PASSWORD: '1'
+#   # mariadb:
+#   #   image: mariadb
+#   #   volumes:
+#   #     - /data/mysql:/var/lib/mysql
+#   #     # - mariadb:/var/lib/mysql 
+#   #   # networks:
+#   #     # - localhost
+#   #   # container_name: mariadb_debian
+#   #   # build: ./requirements/mariadb
+#   #   restart: always
 
-
+#   #   environment:
+#   #     MYSQL_DATABASE: exampledb
+#   #     MYSQL_USER: exampleuser
+#   #     MYSQL_PASSWORD: examplepass
+#   #     MYSQL_RANDOM_ROOT_PASSWORD: '1'
