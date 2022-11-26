@@ -1,6 +1,6 @@
 version: '3'
 services:
-  mysql:
+  mariadb:
     image: mariadb
     volumes:
       - /data/mysql:/var/lib/mysql
@@ -18,16 +18,16 @@ services:
     volumes:
       - /data/html:/var/www/html
     depends_on:
-      - mysql
+      - mariadb
     environment:
-      WORDPRESS_DB_HOST: mysql
+      WORDPRESS_DB_HOST: mariadb
       MYSQL_ROOT_PASSWORD: mysql_root_pass
       WORDPRESS_DB_NAME: db_name
       WORDPRESS_DB_USER: user_name
       WORDPRESS_DB_PASSWORD: user_pass
       WORDPRESS_TABLE_PREFIX: wp_
     links:
-      - mysql
+      - mariadb
     restart: always
     #$ sudo userdel www-data 
     #$ sudo useradd -u 82 www-data
@@ -35,12 +35,13 @@ services:
   nginx:
     image: nginx:alpine
     volumes:
-      - ./nginx:/etc/nginx/conf.d
+      - ./requirements/nginx/conf:/etc/nginx/conf.d
       - /data/html:/var/www/html
     ports:
-      - 8080:80
+      - 443:80
     links:
       - wordpress
+
 
 
 # version: ''
