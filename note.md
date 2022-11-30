@@ -1,0 +1,8 @@
+db : 
+
+
+nginx :
+
+
+
+wordpress:

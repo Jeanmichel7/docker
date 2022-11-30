@@ -2,6 +2,8 @@ version: '3'
 services:
   mariadb:
     image: mariadb
+    networks:
+      - docker-network
     volumes:
       - /data/mysql:/var/lib/mysql
     environment:
@@ -15,6 +17,8 @@ services:
 
   wordpress:
     image: wordpress:php7.3-fpm-alpine
+    networks:
+      - docker-network
     volumes:
       - /data/html:/var/www/html
     depends_on:
@@ -32,8 +36,19 @@ services:
     #$ sudo userdel www-data 
     #$ sudo useradd -u 82 www-data
 
+  # nginx:
+  #   build:
+  #     context: ./requirements/nginx
+  #   depends_on:
+  #     - wordpress
+  #   volumes:
+  #     - /data/html:/var/www/html
+  #     - /data/nginx:/etc/nginx/conf.d
+
   nginx:
     image: nginx:alpine
+    networks:
+      - docker-network
     volumes:
       - ./requirements/nginx/conf:/etc/nginx/conf.d
       - /data/html:/var/www/html
@@ -41,6 +56,43 @@ services:
       - 443:80
     links:
       - wordpress
+
+# ------------------------------------------------------------------------- #
+volumes:
+  www:
+    driver: local
+    driver_opts:
+      type: none
+      device: ${VOLUME_WWW_PATH}
+      o: bind
+  database:
+    driver: local
+    driver_opts:
+      type: none
+      device: ${VOLUME_DB_PATH}
+      o: bind
+
+
+
+
+# # ------------------------------------------------------------------------- #
+networks:
+  docker-network:
+    name: docker-network
+    driver: bridge
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

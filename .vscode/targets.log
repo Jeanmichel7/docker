@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Fri Nov 25 20:29:16 2022
+# Make data base, printed on Tue Nov 29 15:46:30 2022
 
 # Variables
 
@@ -57,7 +57,7 @@ NVM_BIN = /home/jrasser/.nvm/versions/node/v16.14.2/bin
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-a7ce24e0-e564-4fb5-9360-dc8955d1a4b3.sock
+VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-7cca8d11-f9f5-4e52-9c89-5933d278e602.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -71,11 +71,11 @@ PWD = /home/jrasser/42/ft_inception
 # default
 .LOADED := 
 # environment
-WSL_INTEROP = /run/WSL/9_interop
+WSL_INTEROP = /run/WSL/205_interop
 # environment
 PULSE_SERVER = /mnt/wslg/PulseServer
 # environment
-WT_SESSION = 623acfb7-c4b3-4d3c-bfd2-4a6821a4139a
+WT_SESSION = 1226359e-b0ad-4c1f-b356-7e1df3e7a708
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
@@ -171,9 +171,9 @@ MOTD_SHOWN = update-motd
 
 # Directories
 
-# . (device 2080, inode 138813): 8 files, no impossibilities.
+# . (device 2080, inode 138813): 7 files, no impossibilities.
 
-# 8 files, no impossibilities in 1 directories.
+# 7 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -209,12 +209,12 @@ Makefile:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 13 / storage = 111 B / avg = 8 B
-# current buf: size = 8162 B / used = 111 B / count = 13 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 12 / storage = 98 B / avg = 8 B
+# current buf: size = 8162 B / used = 98 B / count = 12 / avg = 8 B
 
-# strcache performance: lookups = 17 / hit rate = 23%
+# strcache performance: lookups = 16 / hit rate = 25%
 # hash-table stats:
-# Load=13/8192=0%, Rehash=0, Collisions=1/17=6%
-# Finished Make data base on Fri Nov 25 20:29:16 2022
+# Load=12/8192=0%, Rehash=0, Collisions=1/16=6%
+# Finished Make data base on Tue Nov 29 15:46:30 2022
 
  
