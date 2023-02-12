@@ -1,6 +1,4 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
-make: *** No rule to make target 'all'.  Stop.
-
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
@@ -8,7 +6,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Nov 29 15:46:30 2022
+# Make data base, printed on Sun Feb 12 13:39:57 2023
 
 # Variables
 
@@ -17,7 +15,10 @@ make: *** No rule to make target 'all'.  Stop.
 # automatic
 ?F = $(notdir $?)
 # environment
-WSLENV = ELECTRON_RUN_AS_NODE/w:WT_SESSION::WT_PROFILE_ID
+define WSLENV
+ELECTRON_RUN_AS_NODE/w:WT_SESSION::WT_PROFILE_ID
+
+endef
 # default
 .SHELLFLAGS := -c
 # environment
@@ -25,6 +26,7 @@ NVM_INC = /home/jrasser/.nvm/versions/node/v16.14.2/include/node
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # automatic
+ 
 @D = $(patsubst %/,%,$(dir $@))
 # automatic
 @F = $(notdir $@)
@@ -33,7 +35,7 @@ CURDIR := /home/jrasser/42/ft_inception
 # makefile
 SHELL = /bin/sh
 # environment
-VSCODE_NLS_CONFIG = {"locale":"en","availableLanguages":{}}
+VSCODE_NLS_CONFIG = {"locale":"fr","availableLanguages":{"*":"fr"},"_languagePackId":"167e39e9e81f802f629c9aafea2575a0.fr","_translationsConfigFile":"/home/jrasser/.vscode-server/data/clp/167e39e9e81f802f629c9aafea2575a0.fr/tcf.json","_cacheRoot":"/home/jrasser/.vscode-server/data/clp/167e39e9e81f802f629c9aafea2575a0.fr","_resolvedLanguagePackCoreLocation":"/home/jrasser/.vscode-server/data/clp/167e39e9e81f802f629c9aafea2575a0.fr/e2816fe719a4026ffa1ee0189dc89bdfdbafb164","_corruptedFile":"/home/jrasser/.vscode-server/data/clp/167e39e9e81f802f629c9aafea2575a0.fr/corrupted.info","_languagePackSupport":true}
 # environment
 _ = /mnt/c/Users/michm/AppData/Local/Programs/Microsoft VS Code/bin/code
 # makefile (from 'Makefile', line 1)
@@ -49,7 +51,7 @@ VSCODE_CWD = /mnt/c/Users/michm/AppData/Local/Programs/Microsoft VS Code
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
-PATH = /home/jrasser/.vscode-server/bin/6261075646f055b99068d3688932416f2346dd3b/bin/remote-cli:/home/jrasser/.local/bin:/home/jrasser/.nvm/versions/node/v16.14.2/bin:/home/jrasser/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Python311/Scripts/:/mnt/c/Python311/:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/DockerDesktop/version-bin:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/Git LFS:/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/nodejs/:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/Users/michm/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/michm/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/michm/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/michm/.dotnet/tools:/mnt/c/Users/michm/AppData/Roaming/npm:/snap/bin
+PATH = /home/jrasser/.vscode-server/bin/e2816fe719a4026ffa1ee0189dc89bdfdbafb164/bin/remote-cli:/home/jrasser/.local/bin:/home/jrasser/.nvm/versions/node/v16.14.2/bin:/home/jrasser/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Python311/Scripts/:/mnt/c/Python311/:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/DockerDesktop/version-bin:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/Git LFS:/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/nodejs/:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/Users/michm/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/michm/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/michm/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/michm/.dotnet/tools:/mnt/c/Users/michm/AppData/Roaming/npm:/snap/bin
 # environment
 NAME = Code
 # environment
@@ -57,7 +59,7 @@ NVM_BIN = /home/jrasser/.nvm/versions/node/v16.14.2/bin
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-7cca8d11-f9f5-4e52-9c89-5933d278e602.sock
+VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-1c04431c-ed6f-426c-9617-b8aed30a1032.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -71,11 +73,11 @@ PWD = /home/jrasser/42/ft_inception
 # default
 .LOADED := 
 # environment
-WSL_INTEROP = /run/WSL/205_interop
+WSL_INTEROP = /run/WSL/455_interop
 # environment
 PULSE_SERVER = /mnt/wslg/PulseServer
 # environment
-WT_SESSION = 1226359e-b0ad-4c1f-b356-7e1df3e7a708
+WT_SESSION = 373c5d43-c643-43fd-9bbb-f44e8cfe18f2
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
@@ -105,13 +107,13 @@ MAKE_VERSION := 4.2.1
 # environment
 USER = jrasser
 # makefile
-.DEFAULT_GOAL := 
+.DEFAULT_GOAL := all
 # environment
 LIBVIRT_DEFAULT_URI = qemu:///system
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
 # environment
-VSCODE_WSL_EXT_LOCATION = /mnt/c/Users/michm/.vscode/extensions/ms-vscode-remote.remote-wsl-0.72.0
+VSCODE_WSL_EXT_LOCATION = /mnt/c/Users/michm/.vscode/extensions/ms-vscode-remote.remote-wsl-0.75.1
 # default
 MAKE_COMMAND := make
 # default
@@ -128,6 +130,8 @@ MFLAGS = -pqrR
 NVM_DIR = /home/jrasser/.nvm
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
+# environment
+VSCODE_L10N_BUNDLE_LOCATION = vscode-local:/c%3A/Users/michm/.vscode/extensions/ms-ceintl.vscode-language-pack-fr-1.75.2023020109/translations/extensions/vscode.json-language-features.i18n.json
 # automatic
 +F = $(notdir $+)
 # environment
@@ -160,10 +164,8 @@ LANG = C
 TERM = xterm-256color
 # environment
 WSL_DISTRO_NAME = Ubuntu
-# environment
-MOTD_SHOWN = update-motd
 # variable set hash-table stats:
-# Load=75/1024=7%, Rehash=0, Collisions=6/99=6%
+# Load=75/1024=7%, Rehash=0, Collisions=6/103=6%
 
 # Pattern-specific Variable Values
 
@@ -171,9 +173,9 @@ MOTD_SHOWN = update-motd
 
 # Directories
 
-# . (device 2080, inode 138813): 7 files, no impossibilities.
+# . (device 2080, inode 138813): 9 files, no impossibilities.
 
-# 7 files, no impossibilities in 1 directories.
+# 9 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -181,17 +183,51 @@ MOTD_SHOWN = update-motd
 
 # Files
 
-# Not a target:
+clear:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 4):
+	cd srcs && docker compose down
+
 all:
 #  Command line target.
-#  Implicit rule search has been done.
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: ''
 #  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := all
+# automatic
+# % := 
+# automatic
+# * := 
+# automatic
+# + := 
+# automatic
+# | := 
+# automatic
+# < := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from 'Makefile', line 2):
+	cd srcs && docker compose up -d
+
+# Not a target:
+.SUFFIXES:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
 #  File has not been updated.
 
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-11-25 20:29:00.191933
+#  Last modified 2022-12-13 20:03:28.970595
 #  File has been updated.
 #  Successfully updated.
 
@@ -201,20 +237,25 @@ Makefile:
 #  Modification time never checked.
 #  File has not been updated.
 
+re: clear all
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
 # files hash-table stats:
-# Load=4/1024=0%, Rehash=0, Collisions=0/14=0%
+# Load=6/1024=1%, Rehash=0, Collisions=0/20=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 12 / storage = 98 B / avg = 8 B
-# current buf: size = 8162 B / used = 98 B / count = 12 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 16 / storage = 134 B / avg = 8 B
+# current buf: size = 8162 B / used = 134 B / count = 16 / avg = 8 B
 
-# strcache performance: lookups = 16 / hit rate = 25%
+# strcache performance: lookups = 27 / hit rate = 40%
 # hash-table stats:
-# Load=12/8192=0%, Rehash=0, Collisions=1/16=6%
-# Finished Make data base on Tue Nov 29 15:46:30 2022
+# Load=16/8192=0%, Rehash=0, Collisions=1/27=4%
+# Finished Make data base on Sun Feb 12 13:39:57 2023
 
  

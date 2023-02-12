@@ -15,6 +15,33 @@ services:
     #$ sudo userdel mysql 
     #$ sudo useradd -u 999 mysql
 
+
+
+
+
+  # wordpress:
+  #   build:
+  #     context: ./requirements/wordpress
+  #   networks:
+  #     - docker-network
+  #   volumes:
+  #     - /data/html:/var/www/html
+  #   depends_on:
+  #     - mariadb
+  #   environment:
+  #     WORDPRESS_DB_HOST: mariadb
+  #     MYSQL_ROOT_PASSWORD: mysql_root_pass
+  #     WORDPRESS_DB_NAME: db_name
+  #     WORDPRESS_DB_USER: user_name
+  #     WORDPRESS_DB_PASSWORD: user_pass
+  #     WORDPRESS_TABLE_PREFIX: wp_
+  #   links:
+  #     - mariadb
+  #   restart: always
+    #$ sudo userdel www-data
+    #$ sudo useradd -u 82 www-data
+
+
   wordpress:
     image: wordpress:php7.3-fpm-alpine
     networks:
@@ -36,17 +63,9 @@ services:
     #$ sudo userdel www-data 
     #$ sudo useradd -u 82 www-data
 
-  # nginx:
-  #   build:
-  #     context: ./requirements/nginx
-  #   depends_on:
-  #     - wordpress
-  #   volumes:
-  #     - /data/html:/var/www/html
-  #     - /data/nginx:/etc/nginx/conf.d
 
   nginx:
-    image: nginx:alpine
+    image: nginx
     networks:
       - docker-network
     volumes:
@@ -56,6 +75,16 @@ services:
       - 443:80
     links:
       - wordpress
+
+  # nginx:
+  #   build:
+  #     context: ./requirements/nginx
+  #   depends_on:
+  #     - wordpress
+  #   volumes:
+  #     - /data/html:/var/www/html
+  #     - /data/nginx:/etc/nginx/conf.d
+
 
 # ------------------------------------------------------------------------- #
 volumes:
