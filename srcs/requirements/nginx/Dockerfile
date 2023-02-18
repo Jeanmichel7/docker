@@ -5,17 +5,21 @@ RUN apt-get update && apt-get install -y \
     nginx \
     openssl \
     && apt-get clean \
-    && rm -rf /var/lib/apt/lists/* 
+    && rm -rf /var/lib/apt/lists/*
 
 # RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/nginx.key -out /etc/ssl/certs/nginx.crt -subj "/C=RU/ST=Mulhouse/L=Mulhouse/O=JMRCompanie/OU=JMR/CN=https:\/\/github.com\/Jeanmichel7/emailAddress=jrasser@student.42mulhouse.fr"
 
 # Générer les certificats auto-signés
 # RUN openssl req -x509 -newkey rsa:2048 -keyout /etc/nginx/ssl/certificate_key.pem -out /etc/nginx/ssl/certificate.pem -days 365 -nodes -subj "/CN=localhost"
-
+RUN openssl req -newkey rsa:4096 -x509 -sha256 -days 365 -nodes -out /etc/ssl/jrasser.42.fr.crt -keyout /etc/ssl/jrasser.42.fr.key -subj "/C=FR/ST=Mulhouse/L=Mulhouse/O=42 School/OU=jrasser/CN=jrasser.42.fr"
 
 # #COPY static-html-directory /usr/share/nginx/html
 # COPY ./conf/nginx.conf etc/nginx/nginx.conf
 # COPY ./conf/default.conf etc/nginx/http.d/default.conf
+
+
+COPY conf/nginx.conf /etc/nginx/conf.d
+
 
 EXPOSE 443
 

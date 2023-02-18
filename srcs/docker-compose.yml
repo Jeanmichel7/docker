@@ -21,8 +21,8 @@ services:
     networks:
       - docker-network
     volumes:
-      - ./requirements/nginx/conf:/etc/nginx/conf.d
-      - ./requirements/nginx/ssl:/etc/nginx/ssl
+      # - ./requirements/nginx/conf:/etc/nginx/conf.d
+      # - ./requirements/nginx/ssl:/etc/nginx/ssl
       - www:/var/www/html
     ports:
       - 443:443
