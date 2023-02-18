@@ -14,8 +14,6 @@ services:
   #   depends_on:
   #     - wordpress
 
-
-
   nginx:
     build:
       context: ./requirements/nginx
@@ -25,14 +23,12 @@ services:
     volumes:
       - ./requirements/nginx/conf:/etc/nginx/conf.d
       - ./requirements/nginx/ssl:/etc/nginx/ssl
-      - ${VOLUME_WWW_PATH}:/var/www/html
+      - www:/var/www/html
     ports:
       - 443:443
-    depends_on:
-      - wordpress
-    # restart: always
-
-
+    # depends_on:
+    #   - wordpress
+    restart: always
 
   # mariadb:
   #   image: mariadb
@@ -40,35 +36,38 @@ services:
   #   networks:
   #     - docker-network
   #   volumes:
-  #     - ${VOLUME_DB_PATH}:/var/lib/mysql
+  #     - database:/var/lib/mysql
   #   environment:
   #     MYSQL_ROOT_PASSWORD: mysql_root_pass
   #     MYSQL_DATABASE: db_name
   #     MYSQL_USER: user_name
   #     MYSQL_PASSWORD: user_pass
   #   restart: always
-    # $ sudo userdel mysql 
-    # $ sudo useradd -u 999 mysql
 
   mariadb:
     build:
       context: ./requirements/mariadb
+      args:
+        DB_NAME: ${DB_NAME}
+        DB_USER: ${DB_USER}
+        DB_PASS: ${DB_PASS}
+        DB_ROOT: ${DB_ROOT}
     container_name: mariadb
     networks:
       - docker-network
     volumes:
-      - ${VOLUME_DB_PATH}:/var/lib/mysql
+      - database:/var/lib/mysql
       # - ./requirements/mariadb/conf/createdb.sql:/docker-entrypoint-initdb.d/createdb.sql
-    environment:
-      MYSQL_ROOT_PASSWORD: mysql_root_pass
-      MYSQL_DATABASE: mysql
-      MYSQL_USER: user_name
-      MYSQL_PASSWORD: user_pass
+    # environment:
+    #   MYSQL_ROOT_PASSWORD: mysql_root_pass
+    #   MYSQL_DATABASE: mysql
+    #   MYSQL_USER: user_name
+    #   MYSQL_PASSWORD: user_pass
     ports:
       - 3306:3306
-  #   tty: true
-  #   stdin_open: true
-  #   restart: always
+    # tty: true
+    # stdin_open: true
+    # restart: always
 
   wordpress:
     image: wordpress:php7.3-fpm-alpine
@@ -76,16 +75,26 @@ services:
     networks:
       - docker-network
     volumes:
-      - ${VOLUME_WWW_PATH}:/var/www/html
+      - www:/var/www/html
     depends_on:
       - mariadb
     environment:
+      DB_NAME: ${DB_NAME}
+      DB_USER: ${DB_USER}
+      DB_PASS: ${DB_PASS}
       WORDPRESS_DB_HOST: mariadb
       MYSQL_ROOT_PASSWORD: mysql_root_pass
-      WORDPRESS_DB_NAME: mysql
-      WORDPRESS_DB_USER: user_name
-      WORDPRESS_DB_PASSWORD: user_pass
+      WORDPRESS_DB_NAME: ${DB_NAME}
+      WORDPRESS_DB_USER: ${DB_USER}
+      WORDPRESS_DB_PASSWORD: ${DB_PASS}
       WORDPRESS_TABLE_PREFIX: wp_
+    # environment:
+    #   WORDPRESS_DB_HOST: mariadb
+    #   MYSQL_ROOT_PASSWORD: mysql_root_pass
+    #   WORDPRESS_DB_NAME: ${DB_NAME}
+    #   WORDPRESS_DB_USER: ${DB_USER}
+    #   WORDPRESS_DB_PASSWORD: ${DB_PASS}
+    #   WORDPRESS_TABLE_PREFIX: wp_
     restart: always
     #$ sudo userdel www-data 
     #$ sudo useradd -u 82 www-data
@@ -126,19 +135,19 @@ volumes:
     driver: local
     driver_opts:
       type: none
-      device: ${VOLUME_WWW_PATH}
+      device: /data/www
       o: bind
   database:
     driver: local
     driver_opts:
       type: none
-      device: ${VOLUME_DB_PATH}
+      device: /data/database
       o: bind
 
 
 
 
-# # ------------------------------------------------------------------------- #
+# ------------------------------------------------------------------------- #
 networks:
   docker-network:
     name: docker-network

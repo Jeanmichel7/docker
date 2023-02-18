@@ -6,7 +6,7 @@ if [ ! -d "/var/lib/mysql/mysql" ]; then
 
         # init database
         mysql_install_db --basedir=/usr --datadir=/var/lib/mysql --user=mysql --rpm
-
+        echo "Database initialized"
         tfile=`mktemp`
         if [ ! -f "$tfile" ]; then
                 return 1
@@ -14,7 +14,6 @@ if [ ! -d "/var/lib/mysql/mysql" ]; then
 fi
 
 if [ ! -d "/var/lib/mysql/wordpress" ]; then
-
         cat << EOF > /tmp/create_db.sql
 USE mysql;
 FLUSH PRIVILEGES;
