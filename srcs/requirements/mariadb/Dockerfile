@@ -69,7 +69,7 @@ RUN apt-get update && apt-get install -y mariadb-client mariadb-server\
 # RUN rm -f createdb.sql
 EXPOSE 3306
 
-
+COPY --chown=myslq ./conf/mariadb-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
 COPY ./conf/create_db.sh /usr/local/bin/
 COPY ./conf/wordpress.sql /usr/local/bin/
 RUN chmod +x /usr/local/bin/create_db.sh

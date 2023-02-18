@@ -58,10 +58,10 @@ services:
       - database:/var/lib/mysql
       # - ./requirements/mariadb/conf/createdb.sql:/docker-entrypoint-initdb.d/createdb.sql
     environment:
-      MYSQL_DATABASE: mysql
-      MYSQL_USER: user_name
-      MYSQL_PASSWORD: user_pass
-      MYSQL_ROOT_PASSWORD: mysql_root_pass
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     # ports:
     #   - 3306:3306
     # tty: true
@@ -101,13 +101,12 @@ services:
 
   wordpress:
     environment: 
-      MYSQL_DATABASE: mysql
-      MYSQL_USER: user_name
-      MYSQL_PASSWORD: user_pass
-      MYSQL_HOSTNAME: mariadb
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_HOSTNAME: ${MYSQL_HOSTNAME}
     container_name: wordpress
     build: requirements/wordpress
-    image: wordpress:v_final
     depends_on: 
       - mariadb
     networks:
