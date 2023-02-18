@@ -17,14 +17,14 @@ fclean:
 	docker system prune --all --force --volumes
 	docker network prune --force
 	docker volume prune --force
-	sudo rm -rf ~/data/www/*
-	sudo rm -rf ~/data/database/*
+	sudo rm -rf /data/www/*
+	sudo rm -rf /data/database/*
 
 clean:
 	printf "Cleaning configuration ${name}...\n"
 	docker system prune -a
-	sudo rm -rf ~/data/www/*
-	sudo rm -rf ~/data/database/*
+	sudo rm -rf /data/www/*
+	sudo rm -rf /data/database/*
 
 re:	fclean
 	printf "Rebuild configuration ${name}...\n"

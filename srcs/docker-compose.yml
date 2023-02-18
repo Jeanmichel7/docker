@@ -26,8 +26,8 @@ services:
       - www:/var/www/html
     ports:
       - 443:443
-    # depends_on:
-    #   - wordpress
+    depends_on:
+      - wordpress
     restart: always
 
   # mariadb:
@@ -45,60 +45,76 @@ services:
   #   restart: always
 
   mariadb:
-    build:
-      context: ./requirements/mariadb
-      args:
-        DB_NAME: ${DB_NAME}
-        DB_USER: ${DB_USER}
-        DB_PASS: ${DB_PASS}
-        DB_ROOT: ${DB_ROOT}
+    build: requirements/mariadb
+      # args:
+      #   DB_NAME: ${DB_NAME}
+      #   DB_USER: ${DB_USER}
+      #   DB_PASS: ${DB_PASS}
+      #   DB_ROOT: ${DB_ROOT}
     container_name: mariadb
     networks:
       - docker-network
     volumes:
       - database:/var/lib/mysql
       # - ./requirements/mariadb/conf/createdb.sql:/docker-entrypoint-initdb.d/createdb.sql
-    # environment:
-    #   MYSQL_ROOT_PASSWORD: mysql_root_pass
-    #   MYSQL_DATABASE: mysql
-    #   MYSQL_USER: user_name
-    #   MYSQL_PASSWORD: user_pass
-    ports:
-      - 3306:3306
+    environment:
+      MYSQL_DATABASE: mysql
+      MYSQL_USER: user_name
+      MYSQL_PASSWORD: user_pass
+      MYSQL_ROOT_PASSWORD: mysql_root_pass
+    # ports:
+    #   - 3306:3306
     # tty: true
     # stdin_open: true
     # restart: always
 
+  # wordpress:
+  #   image: wordpress:php7.3-fpm-alpine
+  #   container_name: wordpress
+  #   networks:
+  #     - docker-network
+  #   volumes:
+  #     - www:/var/www/html
+  #   depends_on:
+  #     - mariadb
+  #   environment:
+  #     DB_NAME: ${DB_NAME}
+  #     DB_USER: ${DB_USER}
+  #     DB_PASS: ${DB_PASS}
+  #     WORDPRESS_DB_HOST: mariadb
+  #     MYSQL_ROOT_PASSWORD: mysql_root_pass
+  #     WORDPRESS_DB_NAME: mysql
+  #     WORDPRESS_DB_USER: user_name
+  #     WORDPRESS_DB_PASSWORD: user_pass
+  #     WORDPRESS_TABLE_PREFIX: wp_
+  #   # environment:
+  #   #   WORDPRESS_DB_HOST: mariadb
+  #   #   MYSQL_ROOT_PASSWORD: mysql_root_pass
+  #   #   WORDPRESS_DB_NAME: ${DB_NAME}
+  #   #   WORDPRESS_DB_USER: ${DB_USER}
+  #   #   WORDPRESS_DB_PASSWORD: ${DB_PASS}
+  #   #   WORDPRESS_TABLE_PREFIX: wp_
+  #   restart: always
+  #   #$ sudo userdel www-data 
+  #   #$ sudo useradd -u 82 www-data
+ 
+
   wordpress:
-    image: wordpress:php7.3-fpm-alpine
+    environment: 
+      MYSQL_DATABASE: mysql
+      MYSQL_USER: user_name
+      MYSQL_PASSWORD: user_pass
+      MYSQL_HOSTNAME: mariadb
     container_name: wordpress
+    build: requirements/wordpress
+    image: wordpress:v_final
+    depends_on: 
+      - mariadb
     networks:
       - docker-network
     volumes:
-      - www:/var/www/html
-    depends_on:
-      - mariadb
-    environment:
-      DB_NAME: ${DB_NAME}
-      DB_USER: ${DB_USER}
-      DB_PASS: ${DB_PASS}
-      WORDPRESS_DB_HOST: mariadb
-      MYSQL_ROOT_PASSWORD: mysql_root_pass
-      WORDPRESS_DB_NAME: ${DB_NAME}
-      WORDPRESS_DB_USER: ${DB_USER}
-      WORDPRESS_DB_PASSWORD: ${DB_PASS}
-      WORDPRESS_TABLE_PREFIX: wp_
-    # environment:
-    #   WORDPRESS_DB_HOST: mariadb
-    #   MYSQL_ROOT_PASSWORD: mysql_root_pass
-    #   WORDPRESS_DB_NAME: ${DB_NAME}
-    #   WORDPRESS_DB_USER: ${DB_USER}
-    #   WORDPRESS_DB_PASSWORD: ${DB_PASS}
-    #   WORDPRESS_TABLE_PREFIX: wp_
+      - www:/var/www/html/wordpress
     restart: always
-    #$ sudo userdel www-data 
-    #$ sudo useradd -u 82 www-data
- 
 
 
   # wordpress:

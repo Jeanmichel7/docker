@@ -1,39 +1,58 @@
 # syntax=docker/dockerfile:1
+FROM debian:buster
+
+#Install necessary package from php
+
+RUN apt-get update && apt-get -y install \
+wget \
+php \
+php-cgi \
+php-mysql \
+php-fpm \
+php-pdo \
+php-gd php-cli \
+php-mbstring \
+&& rm -rf /var/lib/apt/lists/*
+
+#Copy the necessary tools to download wordpress
+
+COPY ./conf/www.conf /var/www/html/
+
+#Create the folder to enable php start
+
+RUN mkdir /run/php
+
+#Launch script
+
+COPY ./conf/create_wp.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/create_wp.sh
+ENTRYPOINT ["/usr/local/bin/create_wp.sh"]
+
+WORKDIR /var/www/html/
+
+EXPOSE 9000
+
+CMD ["/usr/sbin/php-fpm7.3", "-F"]
 
 
 
+# # syntax=docker/dockerfile:1
 
+# FROM alpine:3.15.6
 
+# #RUN adduser blog
+# #RUN chown -R blog:www-data /var/www/blog
+# #RUN chmod -R o-rwx /var/www/blog
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-FROM alpine:3.15.6
-
-#RUN adduser blog
-#RUN chown -R blog:www-data /var/www/blog
-#RUN chmod -R o-rwx /var/www/blog
-
-RUN apk update
-RUN apk add php7.3 php-mysqli php-fpm mariadb-client
-#RUN apk add lighttpd php7-common php7-session php7-iconv php7-json php7-gd php7-curl php7-xml php7-mysqli php7-imap php7-cgi fcgi php7-pdo php7-pdo_mysql php7-soap php7-xmlrpc php7-posix php7-mcrypt php7-gettext php7-ldap php7-ctype php7-dom php7-simplexml
-#RUN apk add php-cli
-#RUN apk add php-mysql
-#RUN apk add php-curl
-#RUN apk add php-gd
-#RUN apk add php-intl
-#RUN apk add php-fpm
+# RUN apk update
+# RUN apk add php7.3 php-mysqli php-fpm mariadb-client
+# #RUN apk add lighttpd php7-common php7-session php7-iconv php7-json php7-gd php7-curl php7-xml php7-mysqli php7-imap php7-cgi fcgi php7-pdo php7-pdo_mysql php7-soap php7-xmlrpc php7-posix php7-mcrypt php7-gettext php7-ldap php7-ctype php7-dom php7-simplexml
+# #RUN apk add php-cli
+# #RUN apk add php-mysql
+# #RUN apk add php-curl
+# #RUN apk add php-gd
+# #RUN apk add php-intl
+# #RUN apk add php-fpm
 
 
 
