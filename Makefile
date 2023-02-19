@@ -7,6 +7,10 @@ build:
 	printf "Building configuration ${name}...\n"
 	docker-compose -f ./srcs/docker-compose.yml --env-file srcs/.env up -d --build
 
+down:
+	printf "Stop configuration ${name}...\n"
+	docker-compose -f ./srcs/docker-compose.yml --env-file srcs/.env down
+
 fclean:
 	printf "Total clean of all configurations docker\n"
 	@if [ -n "$$(docker ps -qa)" ]; then \
