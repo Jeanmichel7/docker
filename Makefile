@@ -1,6 +1,9 @@
 name = inception
 all:
 	printf "Launch configuration ${name}...\n"
+	mkdir -p ~/data
+	mkdir -p ~/data/www
+	mkdir -p ~/data/database
 	docker-compose -f ./srcs/docker-compose.yml --env-file srcs/.env up -d
 
 build:
@@ -21,17 +24,15 @@ fclean:
 	docker system prune --all --force --volumes
 	docker network prune --force
 	docker volume prune --force
-	sudo rm -rf /data/www/*
-	sudo rm -rf /data/database/*
+	sudo rm -rf /home/jrasser/data/www/*
+	sudo rm -rf /home/jrasser/data/database/*
 
 clean:
 	printf "Cleaning configuration ${name}...\n"
 	docker system prune -a
-	sudo rm -rf /data/www/*
-	sudo rm -rf /data/database/*
+	sudo rm -rf /home/jrasser/data/www/*
+	sudo rm -rf /home/jrasser/data/database/*
 
-re:	fclean
-	printf "Rebuild configuration ${name}...\n"
-	docker-compose -f ./srcs/docker-compose.yml --env-file srcs/.env up -d --build
+re:	fclean all
 
 .PHONY	: all build down re clean fclean

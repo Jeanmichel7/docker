@@ -1,6 +1,6 @@
 make --dry-run --always-make --keep-going --print-directory
-make: Entering directory '/home/jrasser/42/ft_inception'
+make: Entering directory '/home/jm/ft_inception'
 printf "Launch configuration inception...\n"
 docker-compose -f ./srcs/docker-compose.yml --env-file srcs/.env up -d
-make: Leaving directory '/home/jrasser/42/ft_inception'
+make: Leaving directory '/home/jm/ft_inception'
  

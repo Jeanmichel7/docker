@@ -1,174 +1,207 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
-# GNU Make 4.2.1
+# GNU Make 4.3
 # Built for x86_64-pc-linux-gnu
-# Copyright (C) 1988-2016 Free Software Foundation, Inc.
+# Copyright (C) 1988-2020 Free Software Foundation, Inc.
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Fri Feb 17 21:04:06 2023
+# Make data base, printed on Sun Feb 19 22:07:58 2023
 
 # Variables
 
-# automatic
-<D = $(patsubst %/,%,$(dir $<))
-# automatic
-?F = $(notdir $?)
 # environment
-define WSLENV
-ELECTRON_RUN_AS_NODE/w:WT_SESSION::WT_PROFILE_ID
-
-endef
+GDK_BACKEND = x11
+# environment
+LC_ALL = C
+# environment
+GNOME_SHELL_SESSION_MODE = ubuntu
+# environment
+SSH_AGENT_LAUNCHER = gnome-keyring
+# environment
+VSCODE_CWD = /home/jm/ft_inception
 # default
-.SHELLFLAGS := -c
+MAKE_COMMAND := make
 # environment
-NVM_INC = /home/jrasser/.nvm/versions/node/v16.14.2/include/node
-# automatic
-?D = $(patsubst %/,%,$(dir $?))
+QT_ACCESSIBILITY = 1
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# default
+.VARIABLES := 
+# environment
+PWD = /home/jm/ft_inception
 # automatic
-@F = $(notdir $@)
-# makefile
-CURDIR := /home/jrasser/42/ft_inception
-# makefile
-SHELL = /bin/sh
+%D = $(patsubst %/,%,$(dir $%))
 # environment
-VSCODE_NLS_CONFIG = {"locale":"fr","availableLanguages":{"*":"fr"},"_languagePackId":"87c61dc25f79d0246a2df16e3e1c6ebb.fr","_translationsConfigFile":"/home/jrasser/.vscode-server/data/clp/87c61dc25f79d0246a2df16e3e1c6ebb.fr/tcf.json","_cacheRoot":"/home/jrasser/.vscode-server/data/clp/87c61dc25f79d0246a2df16e3e1c6ebb.fr","_resolvedLanguagePackCoreLocation":"/home/jrasser/.vscode-server/data/clp/87c61dc25f79d0246a2df16e3e1c6ebb.fr/441438abd1ac652551dbe4d408dfcec8a499b8bf","_corruptedFile":"/home/jrasser/.vscode-server/data/clp/87c61dc25f79d0246a2df16e3e1c6ebb.fr/corrupted.info","_languagePackSupport":true}
+XDG_DATA_DIRS = /usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
 # environment
-_ = /mnt/c/Users/michm/AppData/Local/Programs/Microsoft VS Code/bin/code
-# makefile (from 'Makefile', line 1)
-MAKEFILE_LIST :=  Makefile
-# 'override' directive
-GNUMAKEFLAGS := 
-# environment
-XDG_DATA_DIRS = /usr/local/share:/usr/share:/var/lib/snapd/desktop
-# environment
-LESSOPEN = | /usr/bin/lesspipe %s
-# environment
-VSCODE_CWD = /mnt/c/Users/michm/AppData/Local/Programs/Microsoft VS Code
-# default
-MAKE_HOST := x86_64-pc-linux-gnu
-# environment
-PATH = /home/jrasser/.vscode-server/bin/441438abd1ac652551dbe4d408dfcec8a499b8bf/bin/remote-cli:/home/jrasser/.local/bin:/home/jrasser/.nvm/versions/node/v16.14.2/bin:/home/jrasser/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Python311/Scripts/:/mnt/c/Python311/:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/DockerDesktop/version-bin:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/Git LFS:/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/nodejs/:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/Users/michm/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/michm/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/michm/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/michm/.dotnet/tools:/mnt/c/Users/michm/AppData/Roaming/npm:/snap/bin
-# environment
-NAME = Code
-# environment
-NVM_BIN = /home/jrasser/.nvm/versions/node/v16.14.2/bin
-# environment
-ELECTRON_RUN_AS_NODE = 1
-# environment
-VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-c0f5a18e-fe98-4873-a29b-38d1597ebc33.sock
-# environment
-VSCODE_SERVER_TAR = /mnt/c/Users/michm/AppData/Local/Temp/vscode-remote-wsl/441438abd1ac652551dbe4d408dfcec8a499b8bf/vscode-server-stable-linux-x64.tar.gz
-# default
-.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
-# environment
-LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+OLDPWD = /home/jm
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
 # automatic
 %F = $(notdir $%)
 # environment
-DISPLAY = :0
+VSCODE_CODE_CACHE_PATH = /home/jm/.config/Code/CachedData/441438abd1ac652551dbe4d408dfcec8a499b8bf
 # environment
-PWD = /home/jrasser/42/ft_inception
+LANG = C
+# environment
+XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.YHUN01
 # default
 .LOADED := 
+# default
+.INCLUDE_DIRS = /usr/local/include /usr/include /usr/include
 # environment
-WSL_INTEROP = /run/WSL/508_interop
-# environment
-PULSE_SERVER = /mnt/wslg/PulseServer
-# environment
-WT_SESSION = 5305ef70-6b36-40ef-a6fe-f8f2d8806d62
-# environment
-VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
-# environment
-HOME = /home/jrasser
-# environment
-LESSCLOSE = /usr/bin/lesspipe %s %s
-# environment
-LOGNAME = jrasser
+GNOME_TERMINAL_SERVICE = :1.96
+# makefile
+MAKEFLAGS = pqrR
+# makefile
+CURDIR := /home/jm/ft_inception
 # environment
 APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # environment
-NVM_CD_FLAGS = 
-# environment
-VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+LESSOPEN = | /usr/bin/lesspipe %s
 # automatic
-^D = $(patsubst %/,%,$(dir $^))
+*D = $(patsubst %/,%,$(dir $*))
+# environment
+MFLAGS = -pqrR
+# environment
+SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
+# default
+.SHELLFLAGS := -c
+# environment
+WAYLAND_DISPLAY = wayland-0
+# environment
+XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# environment
+XDG_SESSION_DESKTOP = ubuntu
+# makefile (from 'Makefile', line 1)
+MAKEFILE_LIST := Makefile
+# automatic
+@F = $(notdir $@)
+# environment
+VSCODE_PID = 5425
+# environment
+XDG_SESSION_TYPE = wayland
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# environment
+SESSION_MANAGER = local/nonxpc:@/tmp/.ICE-unix/1127,unix/nonxpc:/tmp/.ICE-unix/1127
+# automatic
+*F = $(notdir $*)
+# environment
+CHROME_DESKTOP = code-url-handler.desktop
+# environment
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# environment
+VSCODE_NLS_CONFIG = {"locale":"fr","availableLanguages":{"*":"fr"},"_languagePackId":"87c61dc25f79d0246a2df16e3e1c6ebb.fr","_translationsConfigFile":"/home/jm/.config/Code/clp/87c61dc25f79d0246a2df16e3e1c6ebb.fr/tcf.json","_cacheRoot":"/home/jm/.config/Code/clp/87c61dc25f79d0246a2df16e3e1c6ebb.fr","_resolvedLanguagePackCoreLocation":"/home/jm/.config/Code/clp/87c61dc25f79d0246a2df16e3e1c6ebb.fr/441438abd1ac652551dbe4d408dfcec8a499b8bf","_corruptedFile":"/home/jm/.config/Code/clp/87c61dc25f79d0246a2df16e3e1c6ebb.fr/corrupted.info","_languagePackSupport":true}
+# default
+MAKE_HOST := x86_64-pc-linux-gnu
+# environment
+GNOME_DESKTOP_SESSION_ID = this-is-deprecated
+# makefile
+SHELL = /bin/sh
+# default
+MAKECMDGOALS := all
+# environment
+XMODIFIERS = @im=ibus
+# environment
+SHLVL = 1
+# environment
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/bb4e373a_6690_4ea6_bf54_c62889fef5e0
 # environment
 MAKELEVEL := 0
 # default
 MAKE = $(MAKE_COMMAND)
-# default
-MAKECMDGOALS := all
 # environment
-SHLVL = 1
-# default
-MAKE_VERSION := 4.2.1
-# environment
-USER = jrasser
-# makefile
-.DEFAULT_GOAL := all
-# environment
-LIBVIRT_DEFAULT_URI = qemu:///system
-# automatic
-%D = $(patsubst %/,%,$(dir $%))
-# environment
-VSCODE_WSL_EXT_LOCATION = /mnt/c/Users/michm/.vscode/extensions/ms-vscode-remote.remote-wsl-0.75.3
-# default
-MAKE_COMMAND := make
-# default
-.VARIABLES := 
-# automatic
-*F = $(notdir $*)
-# makefile
-MAKEFLAGS = pqrR
-# makefile (from 'Makefile', line 1)
-name = inception
-# environment
-MFLAGS = -pqrR
-# automatic
-*D = $(patsubst %/,%,$(dir $*))
-# environment
-NVM_DIR = /home/jrasser/.nvm
-# automatic
-+D = $(patsubst %/,%,$(dir $+))
-# environment
-VSCODE_L10N_BUNDLE_LOCATION = vscode-local:/c%3A/Users/michm/.vscode/extensions/ms-ceintl.vscode-language-pack-fr-1.75.2023021509/translations/extensions/vscode.json-language-features.i18n.json
-# automatic
-+F = $(notdir $+)
-# environment
-VSCODE_HANDLES_SIGPIPE = true
-# environment
-WT_PROFILE_ID = {2c4de342-38b7-51cf-b940-2309a097f518}
+PATH = /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
 # default
 MAKEFILES := 
 # automatic
-<F = $(notdir $<)
-# environment
-LC_ALL = C
-# environment
-HOSTTYPE = x86_64
-# automatic
 ^F = $(notdir $^)
-# default
-SUFFIXES := 
+# makefile (from 'Makefile', line 1)
+name = inception
 # environment
-WAYLAND_DISPLAY = wayland-0
-# default
-.INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
-# default
-.RECIPEPREFIX := 
+USERNAME = jm
 # environment
-XDG_RUNTIME_DIR = /mnt/wslg/runtime-dir
+GNOME_SETUP_DISPLAY = :1
 # environment
-LANG = C
+LESSCLOSE = /usr/bin/lesspipe %s %s
+# automatic
+?F = $(notdir $?)
+# environment
+XDG_CURRENT_DESKTOP = Unity
+# environment
+LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+# automatic
++F = $(notdir $+)
+# environment
+DESKTOP_SESSION = ubuntu
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
+# 'override' directive
+GNUMAKEFLAGS := 
+# environment
+LOGNAME = jm
+# makefile
+.DEFAULT_GOAL := all
+# environment
+SYSTEMD_EXEC_PID = 1786
+# environment
+DISPLAY = :0
+# environment
+USER = jm
+# environment
+GTK_MODULES = gail:atk-bridge
+# default
+MAKE_VERSION := 4.3
+# environment
+_ = /usr/bin/code
+# environment
+XDG_RUNTIME_DIR = /run/user/1000
+# environment
+COLORTERM = truecolor
+# environment
+XDG_SESSION_CLASS = user
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+HOME = /home/jm
+# environment
+QT_IM_MODULE = ibus
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# environment
+VSCODE_IPC_HOOK = /run/user/1000/vscode-2cad0304-1.75.1-main.sock
 # environment
 TERM = xterm-256color
 # environment
-WSL_DISTRO_NAME = Ubuntu
+IM_CONFIG_PHASE = 1
+# default
+.RECIPEPREFIX := 
+# automatic
+<F = $(notdir $<)
+# default
+SUFFIXES := 
+# environment
+VSCODE_CLI = 1
+# environment
+ELECTRON_NO_ATTACH_CONSOLE = 1
+# environment
+VTE_VERSION = 6800
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink load
+# environment
+XDG_MENU_PREFIX = gnome-
+# environment
+GDMSESSION = ubuntu
 # variable set hash-table stats:
-# Load=77/1024=8%, Rehash=0, Collisions=6/106=6%
+# Load=95/1024=9%, Rehash=0, Collisions=9/129=7%
 
 # Pattern-specific Variable Values
 
@@ -176,7 +209,7 @@ WSL_DISTRO_NAME = Ubuntu
 
 # Directories
 
-# . (device 2080, inode 138813): 9 files, no impossibilities.
+# . (device 66309, inode 2105626): 9 files, no impossibilities.
 
 # 9 files, no impossibilities in 1 directories.
 
@@ -185,6 +218,39 @@ WSL_DISTRO_NAME = Ubuntu
 # No implicit rules.
 
 # Files
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2023-02-19 22:07:48.617809791
+#  File has been updated.
+#  Successfully updated.
+
+clean:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 28):
+	printf "Cleaning configuration ${name}...\n"
+	docker system prune -a
+	sudo rm -rf /data/www/*
+	sudo rm -rf /data/database/*
+
+re: fclean
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 34):
+	printf "Rebuild configuration ${name}...\n"
+	docker-compose -f ./srcs/docker-compose.yml --env-file srcs/.env up -d --build
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 all:
 #  Phony target (prerequisite of .PHONY).
@@ -197,42 +263,43 @@ all:
 # automatic
 # @ := all
 # automatic
-# % := 
-# automatic
 # * := 
+# automatic
+# < := 
 # automatic
 # + := 
 # automatic
-# | := 
-# automatic
-# < := 
+# % := 
 # automatic
 # ^ := 
 # automatic
 # ? := 
+# automatic
+# | := 
 # variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=1/12=8%
+# Load=8/32=25%, Rehash=0, Collisions=6/12=50%
 #  recipe to execute (from 'Makefile', line 3):
 	printf "Launch configuration ${name}...\n"
 	docker-compose -f ./srcs/docker-compose.yml --env-file srcs/.env up -d
 
-.PHONY: all build down re clean fclean
+fclean:
+#  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
-#  Modification time never checked.
+#  File does not exist.
 #  File has not been updated.
-
-# Not a target:
-.SUFFIXES:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-Makefile:
-#  Implicit rule search has been done.
-#  Last modified 2023-02-17 21:02:08.416739
-#  File has been updated.
-#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 15):
+ 
+	printf "Total clean of all configurations docker\n"
+	@if [ -n "$$(docker ps -qa)" ]; then \
+        docker stop $$(docker ps -qa); \
+    else \
+        echo "No running containers to stop."; \
+    fi
+	docker system prune --all --force --volumes
+	docker network prune --force
+	docker volume prune --force
+	sudo rm -rf /data/www/*
+	sudo rm -rf /data/database/*
 
 build:
 #  Phony target (prerequisite of .PHONY).
@@ -243,56 +310,25 @@ build:
 	printf "Building configuration ${name}...\n"
 	docker-compose -f ./srcs/docker-compose.yml --env-file srcs/.env up -d --build
 
-fclean:
-#  Phony target (prerequisite of .PHONY).
-#  Implicit rule search has not been done.
-#  File does not exist.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 11):
-	printf "Total clean of all configurations docker\n"
-	@if [ -n "$$(docker ps -qa)" ]; then \
-        docker stop $$(docker ps -qa); \
-    else \
-        echo "No running containers to stop."; \
-    fi
-	docker system prune --all --force --volumes
-	docker network prune --force
-	docker volume prune --force
-	sudo rm -rf ~/data/www/*
-	sudo rm -rf ~/data/database/*
-
 # Not a target:
-.DEFAULT:
+.SUFFIXES:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
-re: fclean
-#  Phony target (prerequisite of .PHONY).
+.PHONY: all build down re clean fclean
 #  Implicit rule search has not been done.
-#  File does not exist.
+#  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 30):
-	printf "Rebuild configuration ${name}...\n"
-	docker-compose -f ./srcs/docker-compose.yml --env-file srcs/.env up -d --build
-
-clean:
-#  Phony target (prerequisite of .PHONY).
- 
-#  Implicit rule search has not been done.
-#  File does not exist.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 24):
-	printf "Cleaning configuration ${name}...\n"
-	docker system prune -a
-	sudo rm -rf ~/data/www/*
-	sudo rm -rf ~/data/database/*
 
 down:
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
+#  recipe to execute (from 'Makefile', line 11):
+	printf "Stop configuration ${name}...\n"
+	docker-compose -f ./srcs/docker-compose.yml --env-file srcs/.env down
 
 # files hash-table stats:
 # Load=10/1024=1%, Rehash=0, Collisions=0/29=0%
@@ -305,9 +341,9 @@ down:
 # strcache buffers: 1 (0) / strings = 20 / storage = 155 B / avg = 7 B
 # current buf: size = 8162 B / used = 155 B / count = 20 / avg = 7 B
 
-# strcache performance: lookups = 38 / hit rate = 47%
+# strcache performance: lookups = 40 / hit rate = 50%
 # hash-table stats:
-# Load=20/8192=0%, Rehash=0, Collisions=1/38=3%
-# Finished Make data base on Fri Feb 17 21:04:06 2023
+# Load=20/8192=0%, Rehash=0, Collisions=0/40=0%
+# Finished Make data base on Sun Feb 19 22:07:58 2023
 
  

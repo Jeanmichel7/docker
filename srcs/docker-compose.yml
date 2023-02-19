@@ -150,13 +150,13 @@ volumes:
     driver: local
     driver_opts:
       type: none
-      device: /data/www
+      device: ${VOLUME_WP}
       o: bind
   database:
     driver: local
     driver_opts:
       type: none
-      device: /data/database
+      device: ${VOLUME_DB}
       o: bind
 
 
