@@ -21,6 +21,11 @@ fclean:
     else \
         echo "No running containers to stop."; \
     fi
+	@if [ -n "$$(docker volume ls -q)" ]; then \
+        docker volume rm $(docker volume ls -q) \
+    else \
+        echo "No volumes to remove."; \
+    fi
 	docker system prune --all --force --volumes
 	docker network prune --force
 	docker volume prune --force
