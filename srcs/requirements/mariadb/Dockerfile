@@ -16,9 +16,8 @@ mariadb-client mariadb-server \
 EXPOSE 3306
 
 COPY ./conf/mariadb-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
+COPY ./conf/wp_save.sql /usr/local/bin/
 COPY ./conf/create_db.sh /usr/local/bin/
-COPY ./conf/wordpress.sql /usr/local/bin/
-COPY ./conf/savedb.sql /usr/local/bin/
 
 RUN chmod +x /usr/local/bin/create_db.sh
 ENTRYPOINT [ "create_db.sh" ]

@@ -36,8 +36,8 @@ _EOF_
         " | mysql -uroot
 
 #Import database
-mysql -uroot -p$MYSQL_ROOT_PASSWORD $MYSQL_DATABASE < /usr/local/bin/savedb.sql
-
+mysql -uroot -p$MYSQL_ROOT_PASSWORD $MYSQL_DATABASE < /usr/local/bin/wp_save.sql
+mysqladmin -u root password $MYSQL_ROOT_PASSWORD
 fi
 
 /etc/init.d/mysql stop
