@@ -1,43 +1,42 @@
 name = inception
 all:
-	printf "Launch configuration ${name}...\n"
+	printf "Launch configuration ${name}..."
 	mkdir -p ~/data
-	mkdir -p ~/data/www
+	mkdir -p ~/data/wordpress
 	mkdir -p ~/data/database
 	docker-compose -f ./srcs/docker-compose.yml --env-file srcs/.env up -d
 
 build:
-	printf "Building configuration ${name}...\n"
+	printf "Building configuration ${name}..."
+	mkdir -p ~/data
+	mkdir -p ~/data/wordpress
+	mkdir -p ~/data/database
 	docker-compose -f ./srcs/docker-compose.yml --env-file srcs/.env up -d --build
 
 down:
-	printf "Stop configuration ${name}...\n"
+	printf "Stop configuration ${name}..."
 	docker-compose -f ./srcs/docker-compose.yml --env-file srcs/.env down
 
 fclean:
-	printf "Total clean of all configurations docker\n"
+	printf "Total clean of all configurations docker"
 	@if [ -n "$$(docker ps -qa)" ]; then \
         docker stop $$(docker ps -qa); \
     else \
         echo "No running containers to stop."; \
     fi
-	@if [ -n "$$(docker volume ls -q)" ]; then \
-        docker volume rm $(docker volume ls -q) \
-    else \
-        echo "No volumes to remove."; \
-    fi
 	docker system prune --all --force --volumes
 	docker network prune --force
 	docker volume prune --force
-	sudo rm -rf /home/jrasser/data/www/*
-	sudo rm -rf /home/jrasser/data/database/*
+	sudo rm -rf /home/jrasser/data
 
 clean:
-	printf "Cleaning configuration ${name}...\n"
+	printf "Cleaning configuration ${name}..."
 	docker system prune -a
-	sudo rm -rf /home/jrasser/data/www/*
-	sudo rm -rf /home/jrasser/data/database/*
+	sudo rm -rf /home/jrasser/data
 
 re:	fclean all
+
+eval:
+	docker stop $$(docker ps -qa); docker rm $$(docker ps -qa); docker rmi -f $$(docker images -qa); docker volume rm $$(docker volume ls -q); docker network rm $$(docker network ls -q) 2>/dev/null
 
 .PHONY	: all build down re clean fclean

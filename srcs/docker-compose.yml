@@ -23,7 +23,7 @@ services:
     volumes:
       # - ./requirements/nginx/conf:/etc/nginx/conf.d
       # - ./requirements/nginx/ssl:/etc/nginx/ssl
-      - www:/var/www/html
+      - wordpress:/var/www/
     ports:
       - 443:443
     depends_on:
@@ -66,7 +66,7 @@ services:
     #   - 3306:3306
     # tty: true
     # stdin_open: true
-    # restart: always
+    restart: always
 
   # wordpress:
   #   image: wordpress:php7.3-fpm-alpine
@@ -112,7 +112,7 @@ services:
     networks:
       - docker-network
     volumes:
-      - www:/var/www/html/wordpress
+      - wordpress:/var/www/
     restart: always
 
 
@@ -146,7 +146,7 @@ services:
 
 # ------------------------------------------------------------------------- #
 volumes:
-  www:
+  wordpress:
     driver: local
     driver_opts:
       type: none

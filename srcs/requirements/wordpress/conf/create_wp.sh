@@ -14,12 +14,13 @@ else
 	mv ./www.conf /etc/php/7.3/fpm/pool.d/
 
 	#Inport env variables in the config file
-	cd /var/www/html/wordpress
+	cd /var/www/wordpress
 	sed -i "s/username_here/$MYSQL_USER/g" wp-config-sample.php
 	sed -i "s/password_here/$MYSQL_PASSWORD/g" wp-config-sample.php
 	sed -i "s/localhost/$MYSQL_HOSTNAME/g" wp-config-sample.php
 	sed -i "s/database_name_here/$MYSQL_DATABASE/g" wp-config-sample.php
 	mv wp-config-sample.php wp-config.php
+	chmod -R 0777 wp-content wp-admin wp-includes
 fi
 
 exec "$@"
