@@ -19,7 +19,8 @@ COPY ./conf/mariadb-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
 COPY ./conf/wp_save.sql /usr/local/bin/
 COPY ./conf/create_db.sh /usr/local/bin/
 
-RUN chmod +x /usr/local/bin/create_db.sh
+RUN chmod 777 /usr/local/bin/create_db.sh && chmod 777 /usr/local/bin/wp_save.sql
+
 ENTRYPOINT [ "create_db.sh" ]
-# USER mysql
-CMD ["mysqld", "--skip-log-error", "--bind-address=0.0.0.0"]
+# USER jrasser
+CMD ["mysqld", "--bind-address=0.0.0.0"]

@@ -4,14 +4,14 @@ all:
 	mkdir -p ~/data
 	mkdir -p ~/data/wordpress
 	mkdir -p ~/data/database
-	docker-compose -f ./srcs/docker-compose.yml --env-file srcs/.env up -d
+	docker-compose -f ./srcs/docker-compose.yml --env-file srcs/.env up
 
 build:
 	printf "Building configuration ${name}..."
 	mkdir -p ~/data
 	mkdir -p ~/data/wordpress
 	mkdir -p ~/data/database
-	docker-compose -f ./srcs/docker-compose.yml --env-file srcs/.env up -d --build
+	docker-compose -f ./srcs/docker-compose.yml --env-file srcs/.env build
 
 down:
 	printf "Stop configuration ${name}..."
@@ -35,6 +35,7 @@ clean:
 	sudo rm -rf /home/jrasser/data
 
 re:	fclean all
+
 
 eval:
 	docker stop $$(docker ps -qa); docker rm $$(docker ps -qa); docker rmi -f $$(docker images -qa); docker volume rm $$(docker volume ls -q); docker network rm $$(docker network ls -q) 2>/dev/null

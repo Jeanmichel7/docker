@@ -1,8 +1,5 @@
 #!/bin/sh
-
-mysql_install_db
-
-/etc/init.d/mysql start
+# sudo -u root /usr/bin/
 
 #Check if the database exists
 
@@ -11,6 +8,9 @@ then
 
 	echo "Database already exists"
 else
+	mysql_install_db
+
+	/etc/init.d/mysql start
 
 # Set root option so that connexion without root password is not possible
         echo "Securing mysql installation"
@@ -30,16 +30,15 @@ _EOF_
 
 #Create database and user for wordpress
 	echo "CREATE DATABASE IF NOT EXISTS $MYSQL_DATABASE;\
-        CREATE USER 'regular_user'@'%' IDENTIFIED BY 'password';\
         GRANT ALL ON $MYSQL_DATABASE.* TO '$MYSQL_USER'@'%' IDENTIFIED BY '$MYSQL_PASSWORD'; FLUSH PRIVILEGES;\
-        GRANT SELECT, INSERT, UPDATE, DELETE ON $MYSQL_DATABASE.* TO 'regular_user'@'%';\
         " | mysql -uroot
 
 #Import database
-mysql -uroot -p$MYSQL_ROOT_PASSWORD $MYSQL_DATABASE < /usr/local/bin/wp_save.sql
-mysqladmin -u root password $MYSQL_ROOT_PASSWORD
+	mysql -uroot -p$MYSQL_ROOT_PASSWORD $MYSQL_DATABASE < /usr/local/bin/wp_save.sql
+	mysqladmin -u root password $MYSQL_ROOT_PASSWORD
+	/etc/init.d/mysql stop
 fi
 
-/etc/init.d/mysql stop
+# sudo -u root /usr/bin/mysqld_safe --datadir='/var/lib/mysql' --user=mysql --log-error=/var/log/mysql/error.log --pid-file=/var/run/mysqld/mysqld.pid
 
 exec "$@"
