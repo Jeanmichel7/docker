@@ -4,6 +4,6 @@ printf "Launch configuration inception..."
 mkdir -p ~/data
 mkdir -p ~/data/wordpress
 mkdir -p ~/data/database
-docker-compose -f ./srcs/docker-compose.yml --env-file srcs/.env up -d
+docker-compose -f ./srcs/docker-compose.yml --env-file srcs/.env up
 make: Leaving directory '/home/jm/ft_inception'
  

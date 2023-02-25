@@ -49,6 +49,31 @@ services:
       - wordpress:/var/www/
     restart: always
 
+  # redis:
+  #   build: requirements/bonus/redis
+  #   container_name: redis
+  #   ports:
+  #     - 6379:6379
+  #   networks:
+  #     - docker-network
+  #   restart: always
+
+  vsftpd:
+    build:
+      context: .
+      dockerfile: requirements/bonus/ftp/Dockerfile
+      args:
+        FTP_USR: ${FTP_USER}
+        FTP_PWD: ${FTP_PWD}
+    container_name: vsftpd
+    ports:
+      - "21:21"
+    volumes:
+      - wordpress:/var/www/
+    networks:
+     - docker-network
+    restart: always
+
  # ------------------------------------------------------------------------- #
   # vitrine:
   #   container_name: vitrine
