@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Mar  2 17:41:54 2023
+# Make data base, printed on Thu Mar  2 21:08:23 2023
 
 # Variables
 
@@ -60,6 +60,8 @@ CURDIR := /home/jm/ft_inception
 APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
+# environment
+VSCODE_L10N_BUNDLE_LOCATION = file:///home/jm/.vscode/extensions/ms-ceintl.vscode-language-pack-fr-1.75.2023021509/translations/extensions/vscode.html-language-features.i18n.json
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
@@ -81,7 +83,7 @@ MAKEFILE_LIST := Makefile
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 17811
+VSCODE_PID = 29561
 # environment
 XDG_SESSION_TYPE = wayland
 # automatic
@@ -165,7 +167,7 @@ MAKE_VERSION := 4.3
 # environment
 MANAGERPID = 1054
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 17811
+GIO_LAUNCHED_DESKTOP_FILE_PID = 29561
 # environment
 _ = /usr/share/code/code
 # environment
@@ -199,7 +201,7 @@ XDG_MENU_PREFIX = gnome-
 # environment
 GDMSESSION = ubuntu
 # variable set hash-table stats:
-# Load=94/1024=9%, Rehash=0, Collisions=2/128=2%
+# Load=95/1024=9%, Rehash=0, Collisions=3/129=2%
 
 # Pattern-specific Variable Values
 
@@ -220,7 +222,7 @@ GDMSESSION = ubuntu
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2023-02-27 23:55:17.568032878
+#  Last modified 2023-03-02 19:27:26.871357097
 #  File has been updated.
 #  Successfully updated.
 
@@ -234,7 +236,7 @@ clean:
 	docker system prune -a
 	sudo rm -rf /home/jrasser/data
 
-re: down all
+re: fclean all
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
@@ -284,9 +286,9 @@ fclean:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
- 
 #  recipe to execute (from 'Makefile', line 22):
 	printf "Total clean of all configurations docker"
+ 
 	@if [ -n "$$(docker ps -qa)" ]; then \
         docker stop $$(docker ps -qa); \
     else \
@@ -335,6 +337,7 @@ down:
 #  recipe to execute (from 'Makefile', line 17):
 	printf "Stop configuration ${name}..."
 	docker-compose -f ./srcs/docker-compose.yml --env-file srcs/.env down
+	sudo rm -rf /home/jrasser/data
 
 # files hash-table stats:
 # Load=11/1024=1%, Rehash=0, Collisions=0/31=0%
@@ -350,6 +353,6 @@ down:
 # strcache performance: lookups = 43 / hit rate = 51%
 # hash-table stats:
 # Load=21/8192=0%, Rehash=0, Collisions=0/43=0%
-# Finished Make data base on Thu Mar  2 17:41:54 2023
+# Finished Make data base on Thu Mar  2 21:08:23 2023
 
  
