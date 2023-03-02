@@ -11,11 +11,12 @@ build:
 	mkdir -p ~/data
 	mkdir -p ~/data/wordpress
 	mkdir -p ~/data/database
-	docker-compose -f ./srcs/docker-compose.yml --env-file srcs/.env build
+	docker-compose -f ./srcs/docker-compose.yml --env-file srcs/.env up --build
 
 down:
 	printf "Stop configuration ${name}..."
 	docker-compose -f ./srcs/docker-compose.yml --env-file srcs/.env down
+	sudo rm -rf /home/jrasser/data
 
 fclean:
 	printf "Total clean of all configurations docker"
@@ -25,8 +26,8 @@ fclean:
         echo "No running containers to stop."; \
     fi
 	docker system prune --all --force --volumes
-	docker network prune --force
 	docker volume prune --force
+	docker network prune --force
 	sudo rm -rf /home/jrasser/data
 
 clean:

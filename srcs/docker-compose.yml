@@ -4,9 +4,11 @@ services:
     build: requirements/nginx
     container_name: nginx
     networks:
-      - docker-network
+      - inception-network
     volumes:
-      - wordpress:/var/www/
+      - wordpress:/var/www/html
+      - ./requirements/nginx/ssl/:/etc/nginx/ssl/
+      - ./requirements/nginx/conf/:/etc/nginx/conf.d/
     ports:
       - 443:443
     depends_on:
@@ -23,7 +25,7 @@ services:
         - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
     container_name: mariadb
     networks:
-      - docker-network
+      - inception-network
     volumes:
       - database:/var/lib/mysql
     environment:
@@ -44,34 +46,9 @@ services:
     depends_on: 
       - mariadb
     networks:
-      - docker-network
+      - inception-network
     volumes:
-      - wordpress:/var/www/
-    restart: always
-
-  # redis:
-  #   build: requirements/bonus/redis
-  #   container_name: redis
-  #   ports:
-  #     - 6379:6379
-  #   networks:
-  #     - docker-network
-  #   restart: always
-
-  vsftpd:
-    build:
-      context: .
-      dockerfile: requirements/bonus/ftp/Dockerfile
-      args:
-        FTP_USR: ${FTP_USER}
-        FTP_PWD: ${FTP_PWD}
-    container_name: vsftpd
-    ports:
-      - "21:21"
-    volumes:
-      - wordpress:/var/www/
-    networks:
-     - docker-network
+      - wordpress:/var/www/html
     restart: always
 
  # ------------------------------------------------------------------------- #
@@ -101,5 +78,43 @@ volumes:
 
 # ------------------------------------------------------------------------- #
 networks:
-  docker-network:
+  inception-network:
     driver: bridge
+
+
+  # redis:
+  #   build: requirements/bonus/redis
+  #   container_name: redis
+  #   ports:
+  #     - 6379:6379
+  #   networks:
+  #     - inception-network
+  #   restart: always
+
+  # vsftpd:
+  #   build:
+  #     context: .
+  #     dockerfile: requirements/bonus/ftp/Dockerfile
+  #     args:
+  #       FTP_USR: ${FTP_USER}
+  #       FTP_PWD: ${FTP_PWD}
+  #   container_name: vsftpd
+  #   ports:
+  #     - "21:21"
+  #   volumes:
+  #     - wordpress:/var/www/html
+  #   networks:
+  #    - inception-network
+  #   restart: always
+
+  # adminer:
+  #   build: requirements/bonus/adminer
+  #   container_name: adminer
+  #   ports:
+  #     - 8080:8080
+  #   networks:
+  #     - inception-network
+  #   depends_on:
+  #     - mariadb
+  #   restart: always
+  
