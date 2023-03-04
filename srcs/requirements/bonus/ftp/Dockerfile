@@ -25,8 +25,6 @@ RUN echo "allow_writeable_chroot=YES" >> /etc/vsftpd.conf \
 
 WORKDIR /var/www
 
-# ENTRYPOINT ["/bin/bash", "-c", "chown -Rf www-data:www-data /var/www"]
-
 EXPOSE 21
 
 CMD ["/usr/sbin/vsftpd", "/etc/vsftpd.conf"]
