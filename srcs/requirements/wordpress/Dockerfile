@@ -30,7 +30,7 @@ rm -rf latest.tar.gz &&\
 mkdir -p /var/www/html &&\
 mv wordpress /var/www/html
 
-COPY ./conf/wp-config.php /var/www/html/wordpress/wp-config.php
+# COPY ./conf/wp-config.php /var/www/html/wordpress/wp-config.php
 COPY ./conf/www.conf /etc/php/7.3/fpm/pool.d/www.conf
 
 #Create the folder to enable php start
@@ -39,6 +39,13 @@ chown -R www-data:www-data /var/www/html/wordpress &&\
 chmod -R 755 /var/www/html/wordpress
 
 
+WORKDIR /var/www/html
+
+COPY ./conf/create_wp.sh .
+RUN chmod +x create_wp.sh
+ENTRYPOINT ["/var/www/html/create_wp.sh"]
+
+# COPY ./conf/wp-config.php /var/www/html/wordpress/wp-config.php
 EXPOSE 9000
 
 CMD ["/usr/sbin/php-fpm7.3", "-F"]

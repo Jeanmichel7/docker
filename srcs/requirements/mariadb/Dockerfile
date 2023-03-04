@@ -3,8 +3,6 @@ FROM debian:buster
 
 ENV TERM xterm
 
-#Install necessary package from php
-
 RUN apt-get update && apt-get -y install apt-utils \
 libterm-readline-gnu-perl dialog mariadb-server \
     && apt-get clean \
@@ -21,5 +19,4 @@ COPY ./conf/create_db.sh /usr/local/bin/
 RUN chmod 777 /usr/local/bin/create_db.sh && chmod 777 /usr/local/bin/wp_save.sql
 
 ENTRYPOINT [ "create_db.sh" ]
-# USER mysql
 CMD ["mysqld", "--bind-address=0.0.0.0"]
