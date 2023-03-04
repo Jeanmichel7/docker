@@ -52,48 +52,6 @@ services:
     restart: always
 
   
-  redis:
-    build: requirements/bonus/redis
-    container_name: redis
-    ports:
-      - 6379:6379
-    networks:
-      - inception-network
-    restart: always
-
-  vsftpd:
-    build:
-      context: .
-      dockerfile: requirements/bonus/ftp/Dockerfile
-      args:
-        FTP_USR: ${FTP_USER}
-        FTP_PWD: ${FTP_PWD}
-    container_name: vsftpd
-    ports:
-      - "21:21"
-    volumes:
-      - wordpress:/var/www/html
-    networks:
-     - inception-network
-    restart: always
-
-  adminer:
-    build: requirements/bonus/adminer
-    container_name: adminer
-    ports:
-      - 8080:8080
-    networks:
-      - inception-network
-    depends_on:
-      - mariadb
-    restart: always
-  
-  vitrine:
-    build: requirements/bonus/vitrine
-    container_name: vitrine
-    ports:
-      - 80:80
-    restart: always
 
 # ------------------------------------------------------------------------- #
 volumes:
@@ -115,3 +73,48 @@ volumes:
 networks:
   inception-network:
     driver: bridge
+
+
+
+  # redis:
+  #   build: requirements/bonus/redis
+  #   container_name: redis
+  #   ports:
+  #     - 6379:6379
+  #   networks:
+  #     - inception-network
+  #   restart: always
+
+  # vsftpd:
+  #   build:
+  #     context: .
+  #     dockerfile: requirements/bonus/ftp/Dockerfile
+  #     args:
+  #       FTP_USR: ${FTP_USER}
+  #       FTP_PWD: ${FTP_PWD}
+  #   container_name: vsftpd
+  #   ports:
+  #     - "21:21"
+  #   volumes:
+  #     - wordpress:/var/www/html
+  #   networks:
+  #    - inception-network
+  #   restart: always
+
+  # adminer:
+  #   build: requirements/bonus/adminer
+  #   container_name: adminer
+  #   ports:
+  #     - 8080:8080
+  #   networks:
+  #     - inception-network
+  #   depends_on:
+  #     - mariadb
+  #   restart: always
+  
+  # vitrine:
+  #   build: requirements/bonus/vitrine
+  #   container_name: vitrine
+  #   ports:
+  #     - 80:80
+  #   restart: always

@@ -16,7 +16,6 @@ build:
 down:
 	printf "Stop configuration ${name}..."
 	docker-compose -f ./srcs/docker-compose.yml --env-file srcs/.env down
-	sudo rm -rf /home/jrasser/data
 
 fclean:
 	printf "Total clean of all configurations docker"
