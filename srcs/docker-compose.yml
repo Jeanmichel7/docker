@@ -7,7 +7,6 @@ services:
       - inception-network
     volumes:
       - wordpress:/var/www/html
-      - ./requirements/nginx/ssl/:/etc/nginx/ssl/
       - ./requirements/nginx/conf/:/etc/nginx/conf.d/
     ports:
       - 443:443

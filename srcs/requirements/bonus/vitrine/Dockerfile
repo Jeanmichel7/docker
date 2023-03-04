@@ -9,7 +9,6 @@ RUN apt-get update && apt-get install -y \
 COPY conf/nginx.conf /etc/nginx/conf.d
 COPY www/ /var/www/html
 RUN chown -R www-data:www-data /var/www/html
-# RUN chmod -R 755 /var/www
 
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
